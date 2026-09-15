@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MovieCard = ({ movie }) => {
   return (
@@ -16,30 +17,25 @@ const MovieCard = ({ movie }) => {
         justify: "space-between",
       }}
     >
-      <img
-        src={movie.posterURL}
-        alt={movie.title}
-        style={{
-          width: "100%",
-          height: "320px",
-          objectFit: "cover",
-          borderRadius: "8px",
-        }}
-      />
-      <div style={{ marginTop: "10px" }}>
+      <Link
+        to={`/movie/${movie.id}`}
+        style={{ textDecoration: "none", color: "inherit" }}
+      >
+        <img
+          src={movie.posterURL}
+          alt={movie.title}
+          style={{
+            width: "100%",
+            height: "320px",
+            objectFit: "cover",
+            borderRadius: "8px",
+          }}
+        />
         <h3 style={{ margin: "10px 0 5px", fontSize: "1.1rem" }}>
           {movie.title}
         </h3>
-        <p
-          style={{
-            color: "#555",
-            fontSize: "0.85rem",
-            height: "60px",
-            overflow: "hidden",
-          }}
-        >
-          {movie.description}
-        </p>
+      </Link>
+      <div>
         <div
           style={{ fontWeight: "bold", color: "#ffb400", marginTop: "10px" }}
         >
